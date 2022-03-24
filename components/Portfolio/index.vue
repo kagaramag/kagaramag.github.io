@@ -10,8 +10,18 @@
               a Product Designer &amp; Full Stuck Software Engineer.
             </Title>
             <div class="h3 lead">
-              10+ years’ background in creating and executing innovative
-              software solutions to enhance business productivity.<br /> I lead the design of engaging digital products and crafting amazing User Experiences.
+              I have 10+ years’ background in creating and executing innovative
+              software solutions to enhance business productivity.<br />
+              I lead the design of engaging &amp; intuitive digital products and
+              crafting amazing User Experiences.
+            </div>
+            <div class="py-lg">
+              <a
+                href="mailto:kagaramag@gmail.com"
+                target="_blank"
+                class="button outline"
+                >Let's Chat</a
+              >
             </div>
           </div>
         </div>
