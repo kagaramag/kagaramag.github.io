@@ -101,14 +101,14 @@
       <hr class="h-px mb-24 bg-gray-400/20 border-0" />
     </div>
     <!-- NEED ACCESS? -->
-    <div class="relative isolate bg-[#121212]" v-if="authed === false">
+    <div v-if="authed === false" class="relative isolate bg-[#121212]">
       <hr class="h-px bg-gray-400/20 border-0" />
       <div class="max-w-5xl mx-auto">
         <div
           class="mx-auto flex max-w-2xl flex-col gap-16 py-12 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-6 xl:gap-x-0 xl:px-0"
         >
           <img
-            class="h-96 w-full flex-none object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm border border-gray-500/50"
+            class="h-96 w-full flex-none object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm border border-gray-500/50 rounded"
             src="~assets/images/protected.png"
             alt="protected"
           />
@@ -117,15 +117,15 @@
               Access<br />
               Protected Projects
             </h2>
-            <p class="mt-6 text-lg leading-7 text-white">
+            <p class="mt-6 text-lg leading-7 text-gray-600">
               The best stuff is in here. Use password provided via email or
               contact me.
             </p>
 
             <div class="mt-10 flex">
               <button
+                class="text-sm font-semibold leading-6 text-indigo-400 bg-[#343434] border border-gray-300 px-5 py-2.5 text-sm text-gray-300 rounded"
                 @click="openModal"
-                class="text-sm font-semibold leading-6 text-indigo-400 bg-[#343434] border border-gray-300 px-5 py-2.5 text-sm text-gray-300"
               >
                 Enter <span aria-hidden="true">&rarr;</span>
               </button>
@@ -207,14 +207,14 @@
           class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
         >
           <div
-            class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6"
+            class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 rounded"
           >
-            <button class="absolute top-6 right-6">
+            <button class="absolute top-6 right-6" @click="openModal">
               <img width="32" src="~assets/images/close.svg" />
             </button>
             <div>
               <div
-                class="mx-auto flex h-12 w-12 items-center justify-center bg-primary"
+                class="mx-auto flex h-12 w-12 items-center justify-center bg-primary rounded"
               >
                 <svg
                   class="h-6 w-6 text-green-600"

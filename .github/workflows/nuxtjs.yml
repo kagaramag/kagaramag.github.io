@@ -31,6 +31,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        env:
+          pin: ${{ secrets.PIN }}
+          age: ${{ secrets.AGE }}
       - name: Detect package manager
         id: detect-package-manager
         run: |
