@@ -1,8 +1,8 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  router: {
+    // base: 'https://kagaramag.github.io',
+  },
   head: {
     title: 'Gilles Kagarama - Portfolio',
     htmlAttrs: {
@@ -16,35 +16,25 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon-32x32.png' }],
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-
   css: ['~/assets/css/main.css'],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
   ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['cookie-universal-nuxt'],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   tailwindcss: {
     jit: true,
-    // add '~tailwind.config` alias
-    exposeConfig: true
+    exposeConfig: true,
   },
   colorMode: {
-    classSuffix: ""
-  }
+    classSuffix: '',
+  },
+  env: {
+    pin: process.env.PIN,
+    age: process.env.AGE,
+  },
 }
