@@ -8,14 +8,19 @@
     margin: 0;
   }
 }
+:root {
+  --primary-color: #272829;
+  --secondary-color: #34F96D;
+  --dark-color: #1B2328;
+}
 body {
-  background-color: #252525;
-  color: #ebf4f1;
+  background-color: #1B2328;
+  color: #cdcdcd;
   position: relative;
 }
 
 a {
-  color: #e3e3e3;
+  color: #cdcdcd;
 }
 
 /* Transition
@@ -26,7 +31,7 @@ a {
 }
 
 .page-enter {
-  transform: translateX(20%);
+  transform: translateX(5%);
 }
 .page-enter-from,
 .page-leave-to {
