@@ -24,11 +24,11 @@ module.exports = {
     darkSelector: '.dark-mode',
     extend: {},
     colors: {
-      primary: '#252525',
-      secondary: '#004449',
+      primary: '#22445D',
+      secondary: '#34F96D',
       white: '#ffffff',
       black: '#000000',
-      dark: '#252525',
+      dark: '#1B2328',
       green: {
         500: '#16a34a',
       },

@@ -1,13 +1,11 @@
 <template>
   <div class="">
     <div
-      class="lg:mt-24 mt-12 mx-auto max-w-6xl flex gap-x-4 lg:flex-row flex-col h-full"
+      class="lg:mt-24 mt-24 mx-auto max-w-6xl flex gap-x-4 lg:flex-row flex-col h-full"
     >
       <div class="w-full flex lg:flex-col flex-col gap-y-4">
         <div class="text-gray-500/50">
-          <span
-            class="border border-gray-300/30 px-3 py-2 text-gray-300 rounded"
-          >
+          <span class="bg-gray-200 px-3 py-2 text-dark rounded">
             👨🏽‍💻 Projects
           </span>
         </div>
@@ -19,17 +17,18 @@
         </div>
       </div>
     </div>
-    <hr class="h-px my-24 bg-gray-400/20 border-0 border-dashed" />
+    <hr class="h-px lg:my-24 my-8 bg-gray-400/20 border-0 border-dashed" />
     <div v-for="(project, index) in featured" :key="index">
       <div class="max-w-5xl mx-auto relative">
-        <div class="flex flex-row lg:gap-x-12 z-0">
-          <div class="w-1/3">
-            <h1
-              class="lg:text-5xl md:text-3xl text-3xl tracking-tight flex gap-x-4 items-center"
+        <div class="flex lg:flex-row flex-col lg:gap-x-12 z-0 sm:px-6">
+          <div class="lg:w-1/3 w-full">
+            <h2
+              class="lg:text-4xl md:text-2xl text-2xl tracking-tight flex gap-x-4 items-center"
             >
               <span>
                 <img
                   width="64"
+                  height="64"
                   :src="renderImage(project.logo)"
                   :alt="project.name"
                 />
@@ -37,10 +36,12 @@
               <span>
                 {{ project.name }}
               </span>
-            </h1>
+            </h2>
           </div>
-          <div class="w-2/3">
-            <div class="text-xl font-light">{{ project.description }}</div>
+          <div class="lg:w-2/3 w-full">
+            <div class="lg:text-xl text-base font-light">
+              {{ project.description }}
+            </div>
             <div class="mt-2">
               <span
                 v-for="(tag, i) in project.tags"
@@ -51,32 +52,40 @@
               >
             </div>
             <div class="mt-6">
-              <a
-                :href="project.link"
-                target="_blank"
-                class="flex flex-row gap-4 w-32 border border-gray-300/50 bg-dark/50 px-4 py-2.5 text-sm text-gray-300 rounded"
+              <Button
+                :link="project.link"
+                type="link"
+                :internal="false"
+                classes="flex flex-row inline-flex"
               >
-                <span class="text-sm font-weight"> Visit </span>
+                <span> Visit </span>
                 <img
                   width="32"
+                  height="16"
                   src="~assets/images/arrow-right.svg"
                   :alt="project.name"
-                  class="ml-4 opacity-50"
-              /></a>
+                  class="ml-4"
+                />
+              </Button>
             </div>
           </div>
         </div>
         <div
-          class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 bg-[#343434]/70 backdrop-blur-md relative"
+          class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 backdrop-blur-md relative rounded-t-3xl"
+          :style="`background-color: ${project.color}`"
         >
           <img
             :src="renderImage(project.image)"
             :alt="project.name"
+            width="1460"
+            height="763"
             class="relative z-0"
           />
         </div>
 
-        <div class="absolute bottom-0 w-full h-[44rem] overflow-hidden -z-30">
+        <div
+          class="lg:block hidden absolute bottom-0 w-full h-[44rem] overflow-hidden -z-30"
+        >
           <svg
             viewBox="0 0 1024 1024"
             class="relative left-1/2 -bottom-0 h-[56rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
@@ -107,24 +116,34 @@
         <div
           class="mx-auto flex max-w-2xl flex-col gap-16 py-12 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-6 xl:gap-x-0 xl:px-0"
         >
-          <img
-            class="h-96 w-full flex-none object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm border border-gray-500/50 rounded"
-            src="~assets/images/protected.png"
-            alt="protected"
-          />
-          <div class="w-full flex-auto px-12">
-            <h2 class="text-6xl font-bold tracking-tight text-white">
+          <div class="flex-none sm:24">
+            <img
+              class="h-96 shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm border border-gray-500/50 rounded md:p-0"
+              src="~assets/images/protected.png"
+              alt="protected"
+              height="800"
+              width="800"
+            />
+          </div>
+
+          <div class="w-full flex-auto lg:px-12 px-4">
+            <h2
+              class="lg:text-6xl text-3xl font-bold tracking-tight text-white"
+            >
               Access<br />
               Protected Projects
             </h2>
-            <p class="mt-6 text-lg leading-7 text-gray-600">
+            <p class="mt-6 lg:text-lg text-base leading-7 text-gray-600">
               The best stuff is in here. Use password provided via email or
               contact me.
             </p>
 
             <div class="mt-10 flex">
+              <!-- class="text-sm font-semibold leading-6 text-indigo-400 bg-[#343434] border border-gray-300 px-5 py-2.5 text-sm text-gray-300 rounded" -->
+              <!-- classes="flex flex-row inline-flex" -->
               <button
-                class="text-sm font-semibold leading-6 text-indigo-400 bg-[#343434] border border-gray-300 px-5 py-2.5 text-sm text-gray-300 rounded"
+                class="inline bg-secondary px-4 py-2.5 text-dark rounded"
+                type="button"
                 @click="openModal"
               >
                 Enter <span aria-hidden="true">&rarr;</span>
@@ -139,12 +158,13 @@
         <div class="max-w-5xl mx-auto">
           <div class="flex flex-row lg:gap-x-12">
             <div class="w-1/3">
-              <h1
-                class="lg:text-5xl md:text-3xl text-3xl tracking-tight flex gap-x-4 items-center"
+              <h2
+                class="lg:text-4xl md:text-3xl text-3xl tracking-tight flex gap-x-4 items-center"
               >
                 <span>
                   <img
                     width="64"
+                    height="64"
                     :src="renderImage(project.logo)"
                     :alt="project.name"
                   />
@@ -152,7 +172,7 @@
                 <span>
                   {{ project.name }}
                 </span>
-              </h1>
+              </h2>
             </div>
             <div class="w-2/3">
               <div class="text-xl font-light">{{ project.description }}</div>
@@ -166,23 +186,27 @@
                 >
               </div>
               <div class="mt-6">
-                <a
-                  :href="project.link"
-                  target="_blank"
-                  class="flex flex-row gap-4 w-32 border border-gray-300/50 bg-dark/50 px-4 py-2.5 text-sm text-gray-300 rounded"
+                <Button
+                  :link="project.link"
+                  type="link"
+                  :internal="false"
+                  classes="flex flex-row inline-flex"
                 >
-                  <span class="text-sm font-weight"> Visit </span>
+                  <span> Visit </span>
                   <img
                     width="32"
+                    height="16"
                     src="~assets/images/arrow-right.svg"
                     :alt="project.name"
-                    class="ml-4 opacity-50"
-                /></a>
+                    class="ml-4"
+                  />
+                </Button>
               </div>
             </div>
           </div>
           <div
-            class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 bg-[#343434]/70 backdrop-blur-md relative"
+            class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 backdrop-blur-md relative rounded-t-3xl"
+            :style="`background-color: ${project.color}`"
           >
             <img
               :src="renderImage(project.image)"
@@ -201,7 +225,7 @@
       role="dialog"
       aria-modal="true"
     >
-      <div class="fixed inset-0 bg-dark top-0 z-60"></div>
+      <div class="fixed inset-0 bg-[#121212] top-0 z-60"></div>
       <div class="fixed inset-0 z-70 overflow-y-auto">
         <div
           class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
@@ -283,7 +307,8 @@ export default {
           description:
             'A mobile money solution by the United Bank for Africa (UBA) in Partnership with Ossix Technologies, LLC. It is an e-wallet and financial service solution accessible mainly on web and mobile technologies. It allows users to carry out various transactions, including money transfers, bulk payments, utility bill payments, merchant payments, international transfers, and microloans. It is positioned as a secured, rapid, and innovative money transfer solution that aims to penetrate both urban and rural areas across Africa.',
           link: 'https://app.m2u.money',
-          color: '#E11C22',
+          color: '#23303A',
+          // color: '#E01C22',
           year: '',
           tags: ['UX/UI', 'Graphic Design', 'Javascript/TS', 'React', 'NodeJS'],
         },
@@ -296,7 +321,8 @@ export default {
           description:
             'An Africa DeFi Alliance project that provides transformative, decentralized financial solutions for MSMEs in Africa, and to be the de facto home of DeFi applications serving real-world use cases across the continent',
           link: 'https://dev.dashboard.symplifi.co/dashboard',
-          color: '#E11C22',
+          color: '#23303A',
+          // color: '#040712',
           year: '',
           tags: ['Web3', 'Liquidity Pool'],
         },
@@ -306,7 +332,8 @@ export default {
           logo: 'logo-DACADE.png',
           description: 'Peer to peer learning platfrom',
           link: 'https://dacade.org',
-          color: '#E11C22',
+          color: '#23303A',
+          // color: '#1D65F8',
           year: '',
           tags: [
             'UI/UX',
@@ -324,17 +351,26 @@ export default {
           description:
             'An instant communication platform that  helps businesses engage directly with their customer through various channels such as SMS, Social Media platforms (Whatsapp, Telegram, Facebook Messenger), and Voice.',
           link: 'https://pindo.io',
-          color: '#E11C22',
+          color: '#23303A',
+          // color: '#FF2F49',
           year: '',
           tags: ['UI/UX', 'UX Research', 'Design System'],
         },
         // {
         //   name: 'Yes!',
-        //   image: 'project-s-01.jpg',
+        //   image: 'project-06-YES.png',
         //   logo: 'project-s-01.jpg',
         //   description: 'Peer to peer learning platfrom',
         //   link: 'https://yesway.money',
-        //   color: '#E11C22',
+        //   col454545E11C22',
+        // color: '#E11C22',
+        //   tags: [
+        //     'Interaction design ',
+        //     'UX/UI',
+        //     'Javascript/TS',
+        //     'React',
+        //     'NodeJS',
+        //   ],
         //   year: '',
         // },
       ],
@@ -347,9 +383,13 @@ export default {
     }
   },
   created() {
-    this.authed = this.$cookies.get('token') ? true : false
+    this.authed = !!this.$cookies.get('token') ? true : false
+    // this.authed = this.$cookies.get('token') ? true : false
+    console.log('authed', this.authed)
   },
-  mounted() {},
+  mounted() {
+    this.pin = parseInt(process.env.pin)
+  },
 
   methods: {
     openModal() {
