@@ -30,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     # setup env variables
     env:
-      pin: ${{ secrets.PIN }}
-      age: ${{ secrets.AGE }}
+      pin: PIN
+      age: AGE
     steps:
       - name: Checkout
         uses: actions/checkout@v3
