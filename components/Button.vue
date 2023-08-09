@@ -12,7 +12,7 @@ defineProps<{
     v-if="type === 'link' && !internal"
     :href="link"
     target="_blank"
-    class="inline bg-secondary px-4 py-2.5 text-dark rounded"
+    class="inline bg-secondary lg:px-4 px-2 lg:py-2.5 py-1 text-dark rounded"
     :class="classes"
   >
     <slot />
@@ -20,14 +20,14 @@ defineProps<{
   <NuxtLink
     v-else-if="type === 'link' && internal"
     :to="link"
-    class="inline bg-secondary px-4 py-2.5 text-dark rounded"
+    class="inline bg-secondary lg:px-4 px-2 lg:py-2.5 py-1 text-dark rounded"
     :class="classes"
   >
     <slot />
   </NuxtLink>
   <button
     v-else
-    class="inline bg-secondary px-4 py-2.5 text-dark rounded"
+    class="inline bg-secondary lg:px-4 px-2 lg:py-2.5 py-1 text-dark rounded"
     :class="classes"
   >
     <slot />

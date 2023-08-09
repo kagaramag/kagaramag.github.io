@@ -85,7 +85,7 @@ export default {
     <div class="lg:my-16 my-4 mx-auto max-w-6xl space-y-12">
       <div class="flex gap-x-4 lg:flex-row flex-col h-full">
         <div class="lg:w-1/4 w-full">
-          <h3 class="text-3xl font-light subtitle-line">
+          <h3 class="text-3xl font-light subtitle-line sm:mb-6 md:md-6">
             <span> Professional summary </span>
           </h3>
         </div>
@@ -114,7 +114,7 @@ export default {
     <div class="lg:my-16 my-4 mx-auto max-w-6xl space-y-12">
       <div class="flex gap-x-4 lg:flex-row flex-col h-full">
         <div class="lg:w-1/4 w-full">
-          <h3 class="text-3xl font-light subtitle-line">
+          <h3 class="text-3xl font-light subtitle-line sm:mb-6 md:md-6">
             <span> Employment History </span>
           </h3>
         </div>

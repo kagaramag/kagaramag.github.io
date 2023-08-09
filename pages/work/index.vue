@@ -27,10 +27,9 @@
             >
               <span>
                 <img
-                  width="64"
-                  height="64"
                   :src="renderImage(project.logo)"
                   :alt="project.name"
+                  class="w-12 h-12 lg:w-16 lg:h-16"
                 />
               </span>
               <span>
@@ -46,7 +45,7 @@
               <span
                 v-for="(tag, i) in project.tags"
                 :key="i"
-                class="bg-gray-500/50 text-gray-200 text-xs font-light mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300 border border-gray-400/70"
+                class="bg-gray-500/50 text-gray-200 text-xs font-light px-1 mr-1 lg:px-2.5 lg:py-1 px-0.5 rounded dark:bg-gray-700 dark:text-gray-300 border border-gray-400/70"
               >
                 {{ tag }}</span
               >
@@ -71,7 +70,7 @@
           </div>
         </div>
         <div
-          class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 backdrop-blur-md relative rounded-t-3xl"
+          class="z-0 max-w-5xl mx-auto mt-6 lg:pt-12 pt-2 px-2 lg:px-12 backdrop-blur-md relative lg:rounded-t-3xl rounded-t-xl"
           :style="`background-color: ${project.color}`"
         >
           <img
@@ -116,7 +115,7 @@
         <div
           class="mx-auto flex max-w-2xl flex-col gap-16 py-12 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-6 xl:gap-x-0 xl:px-0"
         >
-          <div class="flex-none sm:24">
+          <div class="flex-none sm:24 lg:block hidden">
             <img
               class="h-96 shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm border border-gray-500/50 rounded md:p-0"
               src="~assets/images/protected.png"
@@ -154,19 +153,18 @@
       </div>
     </div>
     <div v-if="authed === true">
-      <div v-for="(project, index) in projects" :key="index" class="mt-24">
-        <div class="max-w-5xl mx-auto">
-          <div class="flex flex-row lg:gap-x-12">
-            <div class="w-1/3">
+      <div v-for="(project, index) in projects" :key="index">
+        <div class="max-w-5xl mx-auto relative mt-12">
+          <div class="flex lg:flex-row flex-col lg:gap-x-12 z-0 sm:px-6">
+            <div class="lg:w-1/3 w-full self-start">
               <h2
-                class="lg:text-4xl md:text-3xl text-3xl tracking-tight flex gap-x-4 items-center"
+                class="self-start lg:text-4xl md:text-2xl text-2xl tracking-tight flex gap-x-4 items-center mb-4"
               >
                 <span>
                   <img
-                    width="64"
-                    height="64"
                     :src="renderImage(project.logo)"
                     :alt="project.name"
+                    class="w-12 h-12 lg:w-16 lg:h-16"
                   />
                 </span>
                 <span>
@@ -174,13 +172,15 @@
                 </span>
               </h2>
             </div>
-            <div class="w-2/3">
-              <div class="text-xl font-light">{{ project.description }}</div>
+            <div class="lg:w-2/3 w-full">
+              <div class="lg:text-xl text-base font-light">
+                {{ project.description }}
+              </div>
               <div class="mt-2">
                 <span
                   v-for="(tag, i) in project.tags"
                   :key="i"
-                  class="bg-gray-500/50 text-gray-200 text-xs font-light mr-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300 border border-gray-400/70"
+                  class="bg-gray-500/50 text-gray-200 text-xs font-light px-1 mr-1 lg:px-2.5 lg:py-1 px-0.5 rounded dark:bg-gray-700 dark:text-gray-300 border border-gray-400/70"
                 >
                   {{ tag }}</span
                 >
@@ -194,18 +194,16 @@
                 >
                   <span> Visit </span>
                   <img
-                    width="32"
-                    height="16"
                     src="~assets/images/arrow-right.svg"
                     :alt="project.name"
-                    class="ml-4"
+                    class="ml-4 w-4 lg:w-8"
                   />
                 </Button>
               </div>
             </div>
           </div>
           <div
-            class="z-0 max-w-5xl mx-auto mt-6 pt-12 px-12 backdrop-blur-md relative rounded-t-3xl"
+            class="z-0 max-w-5xl mx-auto mt-6 lg:pt-12 pt-2 px-2 lg:px-12 backdrop-blur-md relative lg:rounded-t-3xl rounded-t-xl"
             :style="`background-color: ${project.color}`"
           >
             <img
@@ -220,7 +218,7 @@
     </div>
     <div
       v-if="modal === true && authed === false"
-      class="relative z-10"
+      class="relative z-10 top-12"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
@@ -270,6 +268,7 @@
                     class="block w-full border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="eg: 1234567"
                     name="pin"
+                    autocomplete="off"
                   />
                 </div>
               </div>
@@ -384,12 +383,8 @@ export default {
   },
   created() {
     this.authed = !!this.$cookies.get('token') ? true : false
-    // this.authed = this.$cookies.get('token') ? true : false
-    console.log('authed', this.authed)
   },
-  mounted() {
-    this.pin = parseInt(process.env.pin)
-  },
+  mounted() {},
 
   methods: {
     openModal() {
@@ -402,7 +397,8 @@ export default {
     },
     checkAuth() {
       this.authed = false
-      if (parseInt(this.pin) === parseInt(process.env.pin)) {
+      // if (parseInt(this.pin) === parseInt(process.env.pin)) {
+      if (parseInt(this.pin) === 104525) {
         this.$cookies.set('token', Date.now(), {
           path: '/',
           maxAge: process.env.age || 86400, // 60 * 60 * 1 * 1,
