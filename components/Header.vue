@@ -29,7 +29,7 @@ export default {
         aria-label="Global"
       >
         <div class="flex lg:flex">
-          <NuxtLink to="/" class="my-1.5 py-1.5 mx-0">
+          <NuxtLink to="/" class="my-1.5 py-1.5">
             <span class="sr-only">GK</span>
             <img
               width="300"

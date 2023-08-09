@@ -30,7 +30,7 @@
     </div>
     <div class="lg:w-1/2 w-full relative">
       <div
-        class="relative md:mt-12 sm:mt-12 bg-gray-900/50 border-gray-300/10 border rounded"
+        class="relative lg:my-0 my-12 bg-gray-900/50 border-gray-300/10 border rounded"
       >
         <img
           src="~/assets/images/gk-profile-bk.jpg"
