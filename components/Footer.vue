@@ -63,7 +63,7 @@
       <div class=" font-light">
         <div class=" mt-6 text-xl">Gilles Kagarama</div>
         <div>
-          A creative Frontent Engineer &amp; Product Designer<br />
+          A creative Software Engineer &amp; Product Designer<br />
           based in Kigali, Rwanda 🇷🇼
         </div>
         <div class="my-4 text-sm">&copy; 2023, All right reserved</div>

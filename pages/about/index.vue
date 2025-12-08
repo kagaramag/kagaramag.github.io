@@ -75,7 +75,7 @@ export default {
             Gilles Kagarama
           </h1>
           <h2 class="tracking-tight text-2xl font-light">
-            Enthusiastic Frontend Engineer &amp; Product Designer
+            Enthusiastic Software Engineer &amp; Product Designer
           </h2>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default {
         </div>
       </div>
     </div>
-    <hr class="h-px lg:my-24 my-8 bg-gray-400/20 border-0" />
+    <!-- <hr class="h-px lg:my-24 my-8 bg-gray-400/20 border-0" />
     <div class="lg:my-16 my-4 mx-auto max-w-6xl space-y-12">
       <div class="flex gap-x-4 lg:flex-row flex-col h-full">
         <div class="lg:w-1/4 w-full">
@@ -141,7 +141,7 @@ export default {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
