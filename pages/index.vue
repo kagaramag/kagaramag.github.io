@@ -13,7 +13,7 @@
           Gilles Kagarama
         </h1>
         <div class="lg:text-2xl text-base font-light">
-          Frontend Engineer &amp; Product Designer
+          Software Engineer &amp; Product Designer
         </div>
       </div>
       <div class="lg:grow w-full relative">
